@@ -8,18 +8,19 @@ class Game
   end
 
   def run
-    #until over?
+    until over?
       render
       get_input
       #update_board
-    #end
-
+    end
+    render
   end
 
   def get_input
-    puts "enter coordinates"
-    index = gets.chomp.split(",")
-
+    puts "Enter coordinates:"
+    coord = gets.chomp.split(",").map(&:to_i)
+    @current_tile = @board[coord]
+    @current_tile.reveal
   end
 
   def render
@@ -32,21 +33,15 @@ class Game
       print i
       row.each do |tile|
         #will need to update this to accept tile variables
-        print " #{tile.cheat_status} "
+        print " #{tile.status} "
       end
       puts ""
     end
   end
 
 
-  def get_input
-
-  end
-
-
-
   def over?
-
+    @current_tile.nil? ? false : @current_tile.bombed
   end
 
 end

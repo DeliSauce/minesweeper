@@ -11,17 +11,26 @@ class Tile
     @bomb_proximity_count = nil
   end
 
+  attr_accessor :bombed
 
   def reveal
-
+    @revealed = true
   end
 
   def status
-    @revealed ? "_" : "*"
+    if @revealed
+      @bombed ? "X" : " "
+    else
+      "*"
+    end
   end
 
   def cheat_status
-    @bombed ? "X" : "*"
+    if @revealed
+      " "
+    else
+      @bombed ? "X" : "*"
+    end
   end
 
   def neighbors

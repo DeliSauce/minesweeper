@@ -1,7 +1,7 @@
 require_relative 'tile'
 
 class Board
-  BOMBS = 10
+  BOMBS = 20
 
   def initialize(grid)
     #tiles is currently a 2D array of nils
