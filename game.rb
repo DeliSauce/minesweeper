@@ -10,9 +10,15 @@ class Game
   def run
     #until over?
       render
-      #get_input
+      get_input
       #update_board
     #end
+
+  end
+
+  def get_input
+    puts "enter coordinates"
+    index = gets.chomp.split(",")
 
   end
 
@@ -26,7 +32,7 @@ class Game
       print i
       row.each do |tile|
         #will need to update this to accept tile variables
-        print " #{tile} "
+        print " #{tile.cheat_status} "
       end
       puts ""
     end
