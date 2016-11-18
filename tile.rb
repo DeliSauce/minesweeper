@@ -25,6 +25,10 @@ class Tile
     end
   end
 
+  def to_string
+    "tile at #{self.position}"
+  end
+
   def position
     @board.each.with_index do |row, i|
       row.each.with_index do |tile, j|
@@ -33,10 +37,28 @@ class Tile
     end
   end
 
-  # #need to create and array of 9 neighbors
+  #need to create and array of 9 neighbors
   # def neighbors
-  #   array = []
-  #
+  #   tile_neighbors = []
+  #   x, y = self.position
+  #   x_inc = -1
+  #   3.times do
+  #     y_inc = -1
+  #     x_inc += 1
+  #     3.times do
+  #       unless x_inc == 0 && y_inc == 0
+  #         row = x + x_inc
+  #         col = y + y_inc
+  #         coord = [row, col]
+  #         p coord
+  #         p @board.tiles[row][col]
+  #         # p @board[coord]
+  #         tile_neighbors << @board[row, col]
+  #       end
+  #       y_inc += 1
+  #     end
+  #   end
+  #   tile_neighbors
   # end
 
 

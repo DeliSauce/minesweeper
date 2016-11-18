@@ -13,6 +13,9 @@ class Game
       get_input
       break if @current_tile.bombed
       p @current_tile.position
+      #p @current_tile.neighbors.size
+      p @current_tile.class
+      @current_tile.neighbors.each {|tile| p tile.class}
       #update_adjacent_tiles
     end
     render
@@ -44,7 +47,7 @@ class Game
       print i
       row.each do |tile|
         #will need to update this to accept tile variables
-        print " #{tile.status} "
+        print " #{tile.cheat_status} "
       end
       puts ""
     end

@@ -1,7 +1,7 @@
 require_relative 'tile'
 
 class Board
-  BOMBS = 20
+  BOMBS = 1
 
   def initialize(grid)
     #tiles is currently a 2D array of nils
@@ -13,7 +13,7 @@ class Board
   attr_accessor :tiles
 
   def self.nine_by_nine
-    grid = Array.new(9) {Array.new(9)}
+    grid = Array.new(9) { Array.new(9) }
     Board.new(grid)
   end
 
