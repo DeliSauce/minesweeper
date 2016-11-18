@@ -11,10 +11,21 @@ class Game
     until over?
       render
       get_input
-      #update_board
+      break if @current_tile.bombed
+      p @current_tile.position
+      #update_adjacent_tiles
     end
     render
   end
+
+  # def update_adjacent_tiles(@current_tile)
+  #   neighbors_array = @current_tile.neighbors
+  #   unless neighbors.any? { |tile| tile.bombed}
+  #     neighbors.each{ |tile| tile.reveal}
+  #     #this is the recursion, but have to update it
+  #     #update_adjacent_tiles(tile)
+  #   end
+  # end
 
   def get_input
     puts "Enter coordinates:"
@@ -41,7 +52,7 @@ class Game
 
 
   def over?
-    @current_tile.nil? ? false : @current_tile.bombed
+    false
   end
 
 end

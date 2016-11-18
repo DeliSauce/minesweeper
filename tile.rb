@@ -25,6 +25,21 @@ class Tile
     end
   end
 
+  def position
+    @board.each.with_index do |row, i|
+      row.each.with_index do |tile, j|
+        return [i, j] if self == tile
+      end
+    end
+  end
+
+  # #need to create and array of 9 neighbors
+  # def neighbors
+  #   array = []
+  #
+  # end
+
+
   def cheat_status
     if @revealed
       " "
@@ -33,9 +48,6 @@ class Tile
     end
   end
 
-  def neighbors
-
-  end
 
 
   def neighbor_bomb_count
